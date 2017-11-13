@@ -13,5 +13,9 @@ Pod::Spec.new do |s|
   # s.tvos.deployment_target = "9.0"
   s.source_files  = "Classes"
   s.requires_arc = false
-  s.dependency 'Reachability', '~> 2.0', '>= 2.0.4'
+  s.dependency 'Reachability'
+  s.xcconfig = { 'OTHER_LDFLAGS' => '-framework SystemConfiguration ' \
+                                    '-framework CFNetwork ' \
+                                    '-framework MobileCoreServices ' \
+                                    '-l z.1' }
 end
